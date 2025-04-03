@@ -1,5 +1,6 @@
 #include "utils.h"
 
+  // Heart constructor (testing)
   Heart() {
     heart_rate = 0;
     average_heart_rate = 0.0;
