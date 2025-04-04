@@ -1,17 +1,22 @@
 #ifndef HEART_H
 #define HEART_H
-#include <iostream>
+#include <Arduino.h> // Arduino standard library
+// #include <iostream> (Arduino doesn't support iostream(cout, cin)), replace with Serial.print()
 
 class Heart {
   public:
     Heart(int age, std::string name);
     ~Heart();
+
     int get_heart_rate();
     double get_avg_heart_rate();
     int get_monitor_time();
-    void set_monitor_time();
-    void set_average_heart_rate();
-    void set_heart_rate();
+
+    // Andrew N - Implemented set_monitor_time, set_average_heart_rate, set_heart_rate.
+    void set_monitor_time(int time); // It could be double
+    void set_average_heart_rate(double average_rate);
+    void set_heart_rate(int rate); // heart rate must be int, according to hospital
+
     std::string get_name();
     int get_age();
     void set_name();
