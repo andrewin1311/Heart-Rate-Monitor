@@ -17,6 +17,9 @@ class Heart {
     void set_average_heart_rate(double average_rate);
     void set_heart_rate(int rate); // heart rate must be int, according to hospital
 
+    // Patrick M - Implement measure_for_seconds 
+    void measure_for_seconds(int seconds);   // simulates live measurement during recording of heart-rate
+
     std::string get_name();
     int get_age();
     void set_name();
