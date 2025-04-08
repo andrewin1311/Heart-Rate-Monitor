@@ -86,4 +86,34 @@ bool normal_heart_rate(double average_heart_rate) {
   return (get_avg_heart_rate() >= 60 && get_avg_heart_rate() <= 100); 
 }
 
+// Function to record the average heart rate every hour over a 24-hour cycle.
+// Probably gonna change this to 
+void storeDailyAvgHeartRates(Heart &heart) {
+  // Array to hold 24 heartrate measurements for a 24hr cycle
+  double hourlyAverages[24];
+  for (int hour = 0; hour < 24; hour++) {
+    // Inform the user which hour is being measured.
+    Serial.print("Starting measurement for hour ");
+    Serial.println(hour + 1);
+    // Measure heart rate for one hour
+    heart.measure_for_seconds(3600);
+    // Retrieve and store the average heart rate from the current measurement.
+    hourlyAverages[hour] = heart.get_avg_heart_rate();
+    // Log the measured average for this hour.
+    Serial.print("Recorded avg heart rate for hour ");
+    Serial.print(hour + 1);
+    Serial.print(": ");
+    Serial.println(hourlyAverages[hour]);
+  }
+  
+  // Optionally, display the entire day's measurements.
+  Serial.println("Daily average heart rates:");
+  for (int i = 0; i < 24; i++) {
+    Serial.print("Hour ");
+    Serial.print(i + 1);
+    Serial.print(": ");
+    Serial.println(hourlyAverages[i]);
+  }
+}
+
 
