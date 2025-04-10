@@ -25,6 +25,7 @@ class Heart {
     void set_name();
     void set_age();
 
+    void wait_x_seconds(int milli_seconds);
   private:
     int heart_rate;
     double average_heart_rate; 

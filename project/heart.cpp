@@ -1,6 +1,5 @@
 #include "heart.h"
 
-// using namespace std;
 
 Heart::Heart(int u_age, std::string u_name) {
   heart_rate = 0;
@@ -55,10 +54,10 @@ void Heart::measure_for_seconds(int seconds) {
   wait_x_seconds(seconds * 1000);
   // Need to edit, just simulation for now...
   int simulated_rate = random(50, 140);  // Replace random with actual sensor logic later!
-  set_heart_rate(simulate_rate);
+  set_heart_rate(simulated_rate);
   Serial.print("Heart rate measured: ");
   Serial.println(simulated_rate);
-  if (normal_heart_rate()) {
+  if (normal_heart_rate(average_heart_rate)) {
     Serial.println ("Your heart-rate is normal!");
   } else {
     Serial.println ("Your heart-rate is NOT normal!");
@@ -83,7 +82,7 @@ void wait_x_seconds(int milli_seconds) {
 
 bool normal_heart_rate(double average_heart_rate) {
   // If betwen 60 and 100, will return True (Patrick McDonald)
-  return (get_avg_heart_rate() >= 60 && get_avg_heart_rate() <= 100); 
+  return (average_heart_rate >= 60 && average_heart_rate <= 100); 
 }
 
 // Function to record the average heart rate every hour over a 24-hour cycle.
