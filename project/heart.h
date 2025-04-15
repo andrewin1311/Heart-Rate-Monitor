@@ -2,10 +2,11 @@
 #define HEART_H
 
 #include <Arduino.h>
+#include <iostream>
 
 class Heart {
   public:
-    Heart(int age, std::string& name);
+    Heart(int age, std::string name);
     ~Heart();
 
     int get_heart_rate();
