@@ -26,7 +26,21 @@ class Clock {
   
   // Template: can monitor any object with a measure_for_seconds(int) method
   template <typename T>
-  void check_and_measure(T &monitorable);
+  void check_and_measure(T &monitorable) {
+    for (int i = 0; i < schedule_count; i++) {
+      if (!has_measured[i] && schedule[i].startHour == current_hour && 
+                              schedule[i].startMinute == current_minute) {
+        Serial.print("Scheduled measurement triggered at ");
+        Serial.print(current_hour);
+        Serial.print(":");
+        Serial.println(current_minute);
+        // Call the object's measure_for_seconds function
+        monitorable.measure_for_seconds(schedule[i].duration);
+        // Time block has been tested
+        has_measured[i] = true;
+      }
+    }
+  }
 
   private:
     TimeBlock schedule[10];   // Max number of scheduled time blocks
