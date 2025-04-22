@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Rate Display</title>
+  <link rel="stylesheet" href="/static_website/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="heart">&#10084;</div>
+    <div class="bpm-label">Average BPM</div>
+    <div class="bpm-value" id="bpm">--</div>
+
+    <div class="datetime">
+      <div id="date">--</div>
+      <div id="time">--:--:--</div>
+    </div>
+  </div>
+
+  <script src="/static_website/clock.js"></script>
+  
+  <script>
+    // Function to update the date and time every second
+    async function updateBPM() {
+      try {
+        // Fetch the BPM data from the server
+        const response = await fetch('/bpm');
+
+        // Check if the response is ok
+        const data = await response.json();
+
+        // Update the BPM value in the HTML
+        document.getElementById('bpm').textContent = data.bpm;
+      } catch (err) {
+        // Handle any errors that occur during the fetch
+        console.error("Failed to fetch BPM:", err);
+      }
+    }
+  
+    setInterval(updateBPM, 1000); // Update every second
+  </script>
+  
+</body>
+</html>
