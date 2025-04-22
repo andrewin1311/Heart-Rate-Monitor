@@ -1,17 +1,69 @@
+/* Base styling */
 body {
-    background-color: black;
-    color: white;
-    text-align: center;
-    font-family: "Raleway", sans-serif;
+  margin: 0;
+  background: linear-gradient(to bottom right, rgb(136, 8, 8), #ffe6e6); /* Gradient background */
+  font-family: Garamond, serif;
+  color: #b03a2e;
+  display: flex; /* Flexbox for centering */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-ul {
-    list-style: none;
+/* Container block */
+.container {
+  text-align: center;
+  background-color: #fff;
+  padding: 60px 80px; /* Padding around the content */
+  border-radius: 50px; /* Rounded corners */
+  box-shadow: 0 12px 30px rgba(192, 57, 43, 0.2); /* Shadow effect */
+  border: 8px solid #f5b7b1;
 }
 
-.title {
-    text-decoration: underline;
-    font-weight: 100;
-    font-size: 2rem;
-    font-style: italic;
+/* Heart icon */
+.heart {
+  font-size: 120px;
+  color: #e74c3c;
+  margin-bottom: 25px; /* Space between heart and text */
+  animation: pulse 1s infinite ease-in-out; 
+  text-shadow: 0 0 20px rgba(231, 76, 60, 0.6); /* Glowing effect */
+}
+
+/* BPM text */
+.bpm-label {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #922b21;
+}
+
+.bpm-value {
+  font-size: 54px;
+  font-weight: 700;
+  color: #b71c1c;
+  transition: transform 0.2s ease;
+}
+
+.bpm-value:hover {
+  transform: scale(1.05);
+}
+
+/* Date & Time */
+.datetime {
+  margin-top: 40px;
+  font-size: 18px;
+  color: #a93226;
+}
+
+#time {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.12); }
+  100% { transform: scale(1); }
 }
