@@ -1,7 +1,6 @@
 #ifndef HEART_H
 #define HEART_H
-#include <Arduino.h> // Arduino standard library
-#include <iostream> (Arduino doesn't support iostream(cout, cin)), replace with Serial.print()
+#include <iostream>
 
 class Heart {
   public:
