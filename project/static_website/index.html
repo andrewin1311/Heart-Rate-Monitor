@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Heart Rate Display</title>
-  <link rel="stylesheet" href="/static_website/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -18,14 +18,14 @@
     </div>
   </div>
 
-  <script src="/static_website/clock.js"></script>
+  <script src="clock.js"></script>
   
   <script>
     // Function to update the date and time every second
     async function updateBPM() {
       try {
         // Fetch the BPM data from the server
-        const response = await fetch('/bpm');
+        const response = await fetch('http://127.0.0.1:5000/bpm');
 
         // Check if the response is ok
         const data = await response.json();
