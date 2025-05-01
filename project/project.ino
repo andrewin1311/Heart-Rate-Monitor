@@ -1,6 +1,6 @@
 const int pulsePin = 34;  // GPIO34 for analog input
 const int buzzerPin = 22;
-int threshold = 33;      // Threshold we have come to for a working approximation  (last time was 30)
+int threshold = 19;      // Threshold we have come to for a working approximation 
 unsigned long lastBeatTime = 0; // Time since the last Beat (heartbeat)
 int beatCount = 0; // how many beats we have come across
 unsigned long startTime = 0;
@@ -8,6 +8,7 @@ unsigned long startTime = 0;
 // The setup function is run once at the initialization
 void setup() {
   Serial.begin(115200);
+  delay(2000);
   startTime = millis();
   pinMode(buzzerPin, OUTPUT);
 }
@@ -19,6 +20,7 @@ void loop() {
   // Detect heart beat (avoid duplicates through time)
   if (analogValue > threshold && (millis() - lastBeatTime) > 250) {
     beatCount++;
+    // Serial.println("beat detected");
     lastBeatTime = millis();
   }
 
