@@ -1,7 +1,6 @@
 #ifndef HEART_H
 #define HEART_H
 
-#include <Arduino.h>
 #include <iostream>
 
 class Heart {

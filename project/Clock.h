@@ -1,6 +1,5 @@
 #ifndef CLOCK_H
 #define CLOCK_H
-#include <Arduino.h>
 #include "heart.h"
 
 // This is a simple time clock used for scheduling periods of time
