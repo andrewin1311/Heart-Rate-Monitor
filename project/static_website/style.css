@@ -115,3 +115,43 @@ a:link {
   text-decoration: none;
   color: white;
 }
+
+.feature-list {
+  list-style: none;              /* Remove default bullets */
+  padding-left: 0;
+  margin: 20px auto;
+  text-align: left;
+  max-width: 700px;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 2.2em;           
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #922b21;
+  transition: font-size 0.2s ease, color 0.2s ease;
+}
+
+.feature-list li::before {
+  content: "❤️";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+/* Hover effect: pulse the heart and grow the text */
+.feature-list li:hover {
+  font-size: 1.35rem;
+  color: #b71c1c;
+}
+
+.feature-list li:hover::before {
+  animation: pulse 0.4s ease;
+}
+
+
