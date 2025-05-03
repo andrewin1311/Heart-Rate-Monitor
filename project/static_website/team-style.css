@@ -1,3 +1,9 @@
+/* CSS for the Team Page */
+
+body {
+  font-family: Garamond, serif;
+}
+
 /* Apply styles only for the Team section within the #team-page */
 #team-page #team {
     text-align: center;
@@ -12,6 +18,8 @@
     color: #a93226;
     font-weight: bold;
     margin-bottom: 70px;
+    padding-left: 5%;
+    padding-right: 5%;
   }
   
   #team-page .team-container {
@@ -35,6 +43,7 @@
   
   #team-page .team-member img {
     width: 170px;
+    height: 240px;
     object-fit: cover;
     border-radius: 20px;
     border: 4px solid white;
@@ -54,5 +63,14 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+  }
+
+  .team-member h2 {
+    color: white;
+    font-size: 20px;
+  }
+
+  .team-member img {
+    height: 50%;
   }
   
